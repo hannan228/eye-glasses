@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  template: template0
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  port: 5432
+  host: localhost
+  username: devdistrict
+  password: devdistrict
+
+development:
+  <<: *default
+  database: trendyol_development
+
+test:
+  <<: *default
+  database: trendyol_test
+
+production:
+  <<: *default
+  database: trendyol_production
+  username: trendyol
+  password: <%= ENV["TRENDYOL_DATABASE_PASSWORD"] %>
