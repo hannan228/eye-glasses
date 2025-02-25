@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   end
 
   resources :erkeks, only: [:index] do
-
+    collection do
+      get :detail
+    end
   end
 
 
